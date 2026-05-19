@@ -29,7 +29,7 @@
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/swagger": "^11.4.2",
     "@valcinema/common": "^1.0.0",
-    "@valcinema/contracts": "^1.0.5",
+    "@valcinema/contracts": "^1.0.6",
     "@valcinema/core": "^1.0.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
