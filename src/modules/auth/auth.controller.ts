@@ -1,6 +1,7 @@
 import {
 	Body,
 	Controller,
+	Get,
 	HttpCode,
 	HttpStatus,
 	Post,
@@ -8,8 +9,9 @@ import {
 	Res
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { ApiOperation } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 import { AuthClientGrpc } from '@src/modules/auth/auth.grpc';
+import { CurrentUser, Protected } from '@src/shared/decorators';
 import type { Request, Response } from 'express';
 import { lastValueFrom } from 'rxjs';
 
@@ -104,5 +106,14 @@ export class AuthController {
 		});
 
 		return { ok: true };
+	}
+
+	@ApiBearerAuth()
+	@Protected()
+	@Get('account')
+	public async getAccount(@CurrentUser() userId: string) {
+		return {
+			id: userId
+		};
 	}
 }

@@ -25,7 +25,7 @@ async function bootstrap() {
 		.setTitle('ValCinema API')
 		.setDescription('API gateway for ValCinema API')
 		.setVersion('1.0.0')
-		.addBasicAuth()
+		.addBearerAuth()
 		.build();
 
 	const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig);

@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { getPassportConfig } from '@src/core/config';
+import { PassportModule } from '@valcinema/passport';
 
 import { AuthModule } from '../modules/auth/auth.module';
 
@@ -10,6 +12,10 @@ import { AppService } from './app.service';
 	imports: [
 		ConfigModule.forRoot({
 			isGlobal: true
+		}),
+		PassportModule.registerAsync({
+			useFactory: getPassportConfig,
+			inject: [ConfigService]
 		}),
 		AuthModule
 	],
