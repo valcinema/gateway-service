@@ -15,7 +15,7 @@ export class VerifyOtpRequest {
 	})
 	@IsString()
 	@Validate(IdentifierValidator)
-	public identifier: string;
+	public identifier!: string;
 
 	@ApiProperty({
 		example: '123456'
@@ -23,12 +23,12 @@ export class VerifyOtpRequest {
 	@IsNotEmpty()
 	@IsNumberString()
 	@Length(6, 6)
-	public code: string;
+	public code!: string;
 
 	@ApiProperty({
 		example: 'phone',
 		enum: ['phone', 'email']
 	})
 	@IsEnum(['phone', 'email'])
-	public type: 'phone' | 'email';
+	public type!: 'phone' | 'email';
 }

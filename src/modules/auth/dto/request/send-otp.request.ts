@@ -8,12 +8,12 @@ export class SendOtpRequest {
 	})
 	@IsString()
 	@Validate(IdentifierValidator)
-	public identifier: string;
+	public identifier!: string;
 
 	@ApiProperty({
 		example: 'phone',
 		enum: ['phone', 'email']
 	})
 	@IsEnum(['phone', 'email'])
-	public type: 'phone' | 'email';
+	public type!: 'phone' | 'email';
 }

@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { AccountController } from '@src/modules/account/account.controller';
 import { AccountClientGrpc } from '@src/modules/account/account.grpc';
 import { PROTO_PATH } from '@valcinema/contracts';
 
@@ -21,6 +22,7 @@ import { PROTO_PATH } from '@valcinema/contracts';
 			}
 		])
 	],
+	controllers: [AccountController],
 	providers: [AccountClientGrpc],
 	exports: [AccountClientGrpc]
 })
