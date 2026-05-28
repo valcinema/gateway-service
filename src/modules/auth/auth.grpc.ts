@@ -4,6 +4,7 @@ import type {
 	AuthServiceClient,
 	RefreshRequest,
 	SendOtpRequest,
+	TelegramVerifyRequest,
 	VerifyOtpRequest
 } from '@valcinema/contracts/gen/auth';
 
@@ -30,5 +31,13 @@ export class AuthClientGrpc implements OnModuleInit {
 
 	public refresh(request: RefreshRequest) {
 		return this.authService.refresh(request);
+	}
+
+	public telegramInit() {
+		return this.authService.telegramInit({});
+	}
+
+	public telegramVerify(request: TelegramVerifyRequest) {
+		return this.authService.telegramVerify(request);
 	}
 }
